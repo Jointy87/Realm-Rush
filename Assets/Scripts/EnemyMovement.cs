@@ -15,14 +15,11 @@ public class EnemyMovement : MonoBehaviour
 	
 	IEnumerator FollowPath(List<Waypoint> path)
 	{
-		//print("Starting patrol");
 		foreach (Waypoint waypoint in path)
 		{
 			transform.position = waypoint.transform.position;
-			//print("On Block: " + waypoint.gameObject.name);
 			yield return new WaitForSeconds(moveSpeed);
 		}
-		//print("ending patrol");
 	}
 
 	private void OnTriggerEnter(Collider other)

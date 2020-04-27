@@ -33,22 +33,6 @@ public class Pathfinder : MonoBehaviour
 		return path;
 	}
 
-	private void CreatePath()
-	{
-		path.Add(endWaypoint);
-
-		Waypoint previous = endWaypoint.exploredFrom;
-
-		while (previous != startWaypoint)
-		{
-			path.Add(previous);
-			previous = previous.exploredFrom;
-		}
-
-			path.Add(startWaypoint);
-			path.Reverse();
-	}
-
 	private void LoadBlocks()
 	{
 		Waypoint[] waypoints = FindObjectsOfType<Waypoint>();
@@ -74,9 +58,7 @@ public class Pathfinder : MonoBehaviour
 		while(waypointQueue.Count > 0 && isRunning)			
 		{
 			searchCenter = waypointQueue.Dequeue(); //Dequeued waypoint gets named searchcenter
-			//searchCenter.SetTopColor(Color.grey); There is no top anymore
 			searchCenter.isExplored = true;
-			//print("Searching from " + searchCenter);
 
 			HaltIfEndFound();
 
@@ -88,8 +70,6 @@ public class Pathfinder : MonoBehaviour
 	{
 		if (searchCenter.FetchGridPos() == endWaypoint.FetchGridPos())
 		{
-			print("Found " + endWaypoint + " as endpoint");
-
 			isRunning = false;
 		}
 	}
@@ -124,6 +104,21 @@ public class Pathfinder : MonoBehaviour
 	private void SaveOrigin(Waypoint neighbour)
 	{
 		neighbour.exploredFrom = searchCenter;
+	}
+	private void CreatePath()
+	{
+		path.Add(endWaypoint);
+
+		Waypoint previous = endWaypoint.exploredFrom;
+
+		while (previous != startWaypoint)
+		{
+			path.Add(previous);
+			previous = previous.exploredFrom;
+		}
+
+		path.Add(startWaypoint);
+		path.Reverse();
 	}
 
 	public Waypoint FetchStartWaypoint()
