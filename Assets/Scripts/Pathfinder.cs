@@ -74,7 +74,7 @@ public class Pathfinder : MonoBehaviour
 		while(waypointQueue.Count > 0 && isRunning)			
 		{
 			searchCenter = waypointQueue.Dequeue(); //Dequeued waypoint gets named searchcenter
-			searchCenter.SetTopColor(Color.grey);
+			//searchCenter.SetTopColor(Color.grey); There is no top anymore
 			searchCenter.isExplored = true;
 			//print("Searching from " + searchCenter);
 

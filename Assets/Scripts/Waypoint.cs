@@ -24,24 +24,24 @@ public class Waypoint : MonoBehaviour
 	}
 	private void Update()
 	{
-		ColorWaypointsAccordingly();
+		//ColorWaypointsAccordingly();
 	}
 
-	private void ColorWaypointsAccordingly()
-	{
-		if (this == pathfinder.FetchStartWaypoint())
-		{
-			SetTopColor(startColor);
-		}
-		else if (this == pathfinder.FetchEndWaypoint())
-		{
-			SetTopColor(endColor);
-		}
-		else if (isExplored)
-		{
-			SetTopColor(exploredColor);
-		}
-	}
+	//private void ColorWaypointsAccordingly()
+	//{
+	//	if (this == pathfinder.FetchStartWaypoint())
+	//	{
+	//		SetTopColor(startColor);
+	//	}
+	//	else if (this == pathfinder.FetchEndWaypoint())
+	//	{
+	//		SetTopColor(endColor);
+	//	}
+	//	else if (isExplored)
+	//	{
+	//		SetTopColor(exploredColor);
+	//	}
+	//}
 
 	public int FetchGridSize()
 	{
@@ -55,11 +55,11 @@ public class Waypoint : MonoBehaviour
 			Mathf.RoundToInt(transform.position.z / gridSize));
 	}
 
-	public void SetTopColor(Color color)
-	{
-		topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-		topMeshRenderer.material.color = color;
-	}
+	//public void SetTopColor(Color color)
+	//{
+	//	topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
+	//	topMeshRenderer.material.color = color;
+	//}
 
 	public Waypoint FetchOrigin()
 	{
