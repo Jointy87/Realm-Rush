@@ -9,39 +9,45 @@ public class Tower : MonoBehaviour
 	[SerializeField] Transform towerTurret;
 	[SerializeField] Transform targetEnemy;
 	[SerializeField] ParticleSystem bulletEmitter;
+	[SerializeField] float attackRange;
 
 	bool isShooting = false;
 
 	void Update()
 	{
 		LookAtEnemy();
-		Shoot();
-	}
-
-	private void Shoot()
-	{
-		var bulletEmissionModule = bulletEmitter.emission;
-
-		if (isShooting)
-		{
-			bulletEmissionModule.enabled = true;
-		}
-		else
-		{
-			bulletEmissionModule.enabled = false;
-		}
+		CheckRange();
 	}
 
 	private void LookAtEnemy()
 	{
-		towerTurret.LookAt(targetEnemy)	;
+		towerTurret.LookAt(targetEnemy);
 	}
-
-	private void OnTriggerStay(Collider other)
+	private void CheckRange()
 	{
-		if(other.gameObject.tag == "Enemy")
+		if (!targetEnemy) 
 		{
-			isShooting = true;
+			Shoot(false);
+			return; 
+		}
+
+		float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, transform.position);
+
+		if(distanceToEnemy <= attackRange)
+		{
+			Shoot(true);
+		}
+		else
+		{
+			Shoot(false);
 		}
 	}
+
+	private void Shoot(bool isActive)
+	{
+		var bulletEmissionModule = bulletEmitter.emission;
+		bulletEmissionModule.enabled = isActive;
+	}
+
+
 }

@@ -49,6 +49,7 @@ MonoBehaviour:
   towerTurret: {fileID: 2984404486404620338}
   targetEnemy: {fileID: 0}
   bulletEmitter: {fileID: 944392697271541727}
+  attackRange: 30
 --- !u!135 &2026268272696135257
 SphereCollider:
   m_ObjectHideFlags: 0
