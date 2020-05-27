@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
 		{
 			yield return new WaitForSeconds(spawnInterval);
 			EnemyHealth enemySpawned = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+			enemySpawned.transform.parent = transform;
 		}
 	}
 }
