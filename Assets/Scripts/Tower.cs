@@ -12,9 +12,7 @@ public class Tower : MonoBehaviour
 
 	//Cache
 	bool isShooting = false;
-	float distanceToClosestEnemy;
-
-	//State
+	float distToA;
 	Transform targetEnemy;
 
 	void Update()
@@ -33,17 +31,27 @@ public class Tower : MonoBehaviour
 
 		foreach(EnemyHealth enemy in enemiesInScene)
 		{
-			float distanceToClosestEnemy = Vector3.Distance(closestEnemy.transform.position, transform.position);
-			float distanceToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
-
-			if(distanceToEnemy < distanceToClosestEnemy)
-			{
-				closestEnemy = enemy.transform;
-			}
+			closestEnemy = GetClosestEnemy(closestEnemy, enemy.transform);
 		}
 
 		targetEnemy = closestEnemy;
 	}
+
+	private Transform GetClosestEnemy(Transform transA, Transform transB)
+	{
+		var distToA = Vector3.Distance(transA.position, transform.position);
+		var distToB = Vector3.Distance(transB.transform.position, transform.position);
+
+		if (distToB < distToA)
+		{
+			return transB;
+		}
+		else
+		{
+			return transA;
+		}
+	}
+
 	private void LookAtEnemy()
 	{
 		towerTurret.LookAt(targetEnemy);
@@ -55,8 +63,7 @@ public class Tower : MonoBehaviour
 			Shoot(false);
 			return; 
 		}
-
-		
+		float distanceToClosestEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
 
 		if(distanceToClosestEnemy <= attackRange)
 		{
