@@ -63,6 +63,7 @@ public class Tower : MonoBehaviour
 			Shoot(false);
 			return; 
 		}
+
 		float distanceToClosestEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
 
 		if(distanceToClosestEnemy <= attackRange)

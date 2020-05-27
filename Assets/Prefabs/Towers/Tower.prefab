@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2982559776280535931}
   - component: {fileID: 2982559776280535928}
-  - component: {fileID: 2026268272696135257}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -49,19 +48,6 @@ MonoBehaviour:
   towerTurret: {fileID: 2984404486404620338}
   bulletEmitter: {fileID: 944392697271541727}
   attackRange: 30
---- !u!135 &2026268272696135257
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2982559776280535930}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 30
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2982559774735856730
 PrefabInstance:
   m_ObjectHideFlags: 0

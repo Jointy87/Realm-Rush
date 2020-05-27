@@ -6,42 +6,14 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
 	//Parameters
-	[SerializeField] Color startColor;
-	[SerializeField] Color endColor;
-	[SerializeField] Color exploredColor;
+	[SerializeField] Tower towerPrefab;
 	const int gridSize = 10;
 
 	//public is ok here as this is a data class 
 	public bool isExplored = false;
 	public Waypoint exploredFrom;
-
-	//Cache
-	MeshRenderer topMeshRenderer;
-	Pathfinder pathfinder;
-	private void Start()
-	{
-		pathfinder = FindObjectOfType<Pathfinder>();
-	}
-	private void Update()
-	{
-		//ColorWaypointsAccordingly();
-	}
-
-	//private void ColorWaypointsAccordingly()
-	//{
-	//	if (this == pathfinder.FetchStartWaypoint())
-	//	{
-	//		SetTopColor(startColor);
-	//	}
-	//	else if (this == pathfinder.FetchEndWaypoint())
-	//	{
-	//		SetTopColor(endColor);
-	//	}
-	//	else if (isExplored)
-	//	{
-	//		SetTopColor(exploredColor);
-	//	}
-	//}
+	public bool isPlaceable = true;
+	private bool hasTower = false;
 
 	public int FetchGridSize()
 	{
@@ -55,14 +27,18 @@ public class Waypoint : MonoBehaviour
 			Mathf.RoundToInt(transform.position.z / gridSize));
 	}
 
-	//public void SetTopColor(Color color)
-	//{
-	//	topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();
-	//	topMeshRenderer.material.color = color;
-	//}
-
 	public Waypoint FetchOrigin()
 	{
 		return exploredFrom;
+	}
+
+	void OnMouseOver()
+	{
+		if(Input.GetMouseButtonDown(0) && isPlaceable && hasTower == false)
+		{
+			Tower towerToSpawn = Instantiate(towerPrefab, transform.position, Quaternion.identity);
+			hasTower = true;
+		}
+
 	}
 }
