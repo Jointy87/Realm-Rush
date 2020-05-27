@@ -6,20 +6,20 @@ public class EnemySpawner : MonoBehaviour
 {
 	//Parameters
 	[SerializeField] float spawnInterval;
-	[SerializeField] GameObject enemyToSpawn;
+	[SerializeField] EnemyHealth enemyToSpawn;
 	
 	bool isRunning = true;
 	void Start()
 	{
-		while (isRunning)
-		{
-			StartCoroutine(SpawnEnemies());
-		}
+		StartCoroutine(SpawnEnemies());
 	}
 
 	IEnumerator SpawnEnemies()
 	{
-		yield return new WaitForSeconds(spawnInterval);
-		GameObject enemySpawned = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+		while (true) //Another way of saying forever
+		{
+			yield return new WaitForSeconds(spawnInterval);
+			EnemyHealth enemySpawned = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+		}
 	}
 }
