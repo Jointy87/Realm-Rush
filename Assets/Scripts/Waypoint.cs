@@ -6,13 +6,20 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
 	//Parameters
-	[SerializeField] Tower towerPrefab;
 	const int gridSize = 10;
 
 	//public is ok here as this is a data class 
 	public bool isExplored = false;
 	public Waypoint exploredFrom;
 	public bool isPlaceable = true;
+
+	//Cache
+	TowerSpawner ts;
+
+	private void Start()
+	{
+		ts = FindObjectOfType<TowerSpawner>();
+	}
 
 	public int FetchGridSize()
 	{
@@ -35,9 +42,13 @@ public class Waypoint : MonoBehaviour
 	{
 		if(Input.GetMouseButtonDown(0) && isPlaceable)
 		{
-			Tower towerToSpawn = Instantiate(towerPrefab, transform.position, Quaternion.identity);
+			ts.AddTower(this);
 			isPlaceable = false;
 		}
+	}
 
+	public void setPlaceable(bool value)
+	{
+		isPlaceable = value;
 	}
 }

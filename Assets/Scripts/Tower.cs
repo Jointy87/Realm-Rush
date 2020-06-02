@@ -10,6 +10,9 @@ public class Tower : MonoBehaviour
 	[SerializeField] ParticleSystem bulletEmitter;
 	[SerializeField] float attackRange;
 
+	//Debug parameters
+	public Waypoint myWaypoint;
+
 	//Cache
 	bool isShooting = false;
 	float distToA;
@@ -81,6 +84,4 @@ public class Tower : MonoBehaviour
 		var bulletEmissionModule = bulletEmitter.emission;
 		bulletEmissionModule.enabled = isActive;
 	}
-
-
 }
