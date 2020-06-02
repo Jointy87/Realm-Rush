@@ -13,7 +13,7 @@ public class TowerSpawner : MonoBehaviour
 	public void AddTower(Waypoint waypoint)
 	{
 		//read amount of towers in-game from queue instead of towersSpawned
-		if(towerQueue.Count <= towerLimit)
+		if(towerQueue.Count < towerLimit)
 		{
 			SpawnTower(waypoint);
 		}
