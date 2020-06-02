@@ -43,14 +43,11 @@ public class EnemyHealth : MonoBehaviour
 	private void TriggerDeathFX()
 	{
 		ParticleSystem deathExplosion = Instantiate(deathFX, transform.position, Quaternion.identity);
-		deathExplosion.transform.parent = transform;
-		Destroy(deathExplosion.gameObject, 1f);
 	}
 
 	private void TriggerHitFX()
 	{
 		ParticleSystem hitSparks = Instantiate(hitFX, transform.position, Quaternion.identity);
 		hitSparks.transform.parent = transform;
-		Destroy(hitSparks.gameObject, 1f);
 	}
 }

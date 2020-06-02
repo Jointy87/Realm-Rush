@@ -13,7 +13,6 @@ public class Waypoint : MonoBehaviour
 	public bool isExplored = false;
 	public Waypoint exploredFrom;
 	public bool isPlaceable = true;
-	private bool hasTower = false;
 
 	public int FetchGridSize()
 	{
@@ -34,10 +33,10 @@ public class Waypoint : MonoBehaviour
 
 	void OnMouseOver()
 	{
-		if(Input.GetMouseButtonDown(0) && isPlaceable && hasTower == false)
+		if(Input.GetMouseButtonDown(0) && isPlaceable)
 		{
 			Tower towerToSpawn = Instantiate(towerPrefab, transform.position, Quaternion.identity);
-			hasTower = true;
+			isPlaceable = false;
 		}
 
 	}

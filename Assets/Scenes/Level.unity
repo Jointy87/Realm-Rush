@@ -120,6 +120,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &29917141
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.387705
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 41.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2032604
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696168, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546090741749696173, guid: b7619856ccbc7554d9479318c644a3d2,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Hit FX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7619856ccbc7554d9479318c644a3d2, type: 3}
 --- !u!1001 &61255028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1966,7 +2035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWaypoint: {fileID: 197358280}
-  endWaypoint: {fileID: 1420425980}
+  endWaypoint: {fileID: 1171548156}
 --- !u!1001 &660572268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3324,6 +3393,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1110698250}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1171548156 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3748213596812237846, guid: 081f4c2d8b935e242b2bb6be17f8439b,
+    type: 3}
+  m_PrefabInstance: {fileID: 477429589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0fbf7548b6412488319a73bd1d7ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1182506497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4191,18 +4272,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1408348017}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1420425980 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3748213596812237846, guid: 081f4c2d8b935e242b2bb6be17f8439b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1642506935}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae0fbf7548b6412488319a73bd1d7ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1473830695
 PrefabInstance:
   m_ObjectHideFlags: 0
