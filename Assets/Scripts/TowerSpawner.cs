@@ -32,22 +32,22 @@ public class TowerSpawner : MonoBehaviour
 
 	private void MoveOldestTower(Waypoint waypoint)
 	{
-		Tower removedTower = DequeueTower();
-		QueueAndMoveTower(waypoint, removedTower);
+		Tower oldestTower = DequeueTower();
+		QueueAndMoveTower(waypoint, oldestTower);
 	}
 
 	private Tower DequeueTower()
 	{
-		Tower removedTower = towerQueue.Dequeue();
-		removedTower.myWaypoint.setPlaceable(true);
-		return removedTower;
+		Tower oldestTower = towerQueue.Dequeue();
+		oldestTower.myWaypoint.isPlaceable = true;
+		return oldestTower;
 	}
 
-	private void QueueAndMoveTower(Waypoint waypoint, Tower removedTower)
+	private void QueueAndMoveTower(Waypoint waypoint, Tower oldestTower)
 	{
-		removedTower.transform.position = waypoint.transform.position;
-		towerQueue.Enqueue(removedTower);
-		removedTower.myWaypoint = waypoint;
-		removedTower.myWaypoint.setPlaceable(false);
+		oldestTower.transform.position = waypoint.transform.position;
+		towerQueue.Enqueue(oldestTower);
+		oldestTower.myWaypoint = waypoint;
+		oldestTower.myWaypoint.isPlaceable = false;
 	}
 }

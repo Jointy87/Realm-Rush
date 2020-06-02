@@ -46,9 +46,4 @@ public class Waypoint : MonoBehaviour
 			isPlaceable = false;
 		}
 	}
-
-	public void setPlaceable(bool value)
-	{
-		isPlaceable = value;
-	}
 }
