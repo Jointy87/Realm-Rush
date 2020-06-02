@@ -7,6 +7,7 @@ public class TowerSpawner : MonoBehaviour
 	//Config parameters
 	[SerializeField] public Tower towerPrefab;
 	[SerializeField] int towerLimit = 5;
+	[SerializeField] Transform towerParent;
 
 	Queue<Tower> towerQueue = new Queue<Tower>();
 
@@ -26,6 +27,7 @@ public class TowerSpawner : MonoBehaviour
 	private void SpawnTower(Waypoint waypoint)
 	{
 		Tower towerToSpawn = Instantiate(towerPrefab, waypoint.transform.position, Quaternion.identity);
+		towerToSpawn.transform.parent = towerParent.transform;
 		towerQueue.Enqueue(towerToSpawn);
 		towerToSpawn.myWaypoint = waypoint;
 	}
@@ -43,11 +45,11 @@ public class TowerSpawner : MonoBehaviour
 		return oldestTower;
 	}
 
-	private void QueueAndMoveTower(Waypoint waypoint, Tower oldestTower)
+	private void QueueAndMoveTower(Waypoint waypoint, Tower movedTower)
 	{
-		oldestTower.transform.position = waypoint.transform.position;
-		towerQueue.Enqueue(oldestTower);
-		oldestTower.myWaypoint = waypoint;
-		oldestTower.myWaypoint.isPlaceable = false;
+		movedTower.transform.position = waypoint.transform.position;
+		towerQueue.Enqueue(movedTower);
+		movedTower.myWaypoint = waypoint;
+		waypoint.isPlaceable = false;
 	}
 }

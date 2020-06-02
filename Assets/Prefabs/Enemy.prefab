@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 10
+  pointsWorth: 10
   hitFX: {fileID: 8546090741749696171, guid: b7619856ccbc7554d9479318c644a3d2, type: 3}
   deathFX: {fileID: 8546090741749696171, guid: 119932dcd358c764d90e25728196a1c0, type: 3}
 --- !u!65 &7274880104641627283
