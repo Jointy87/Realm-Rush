@@ -10,13 +10,17 @@ public class EnemyHealth : MonoBehaviour
 	[SerializeField] int pointsWorth;
 	[SerializeField] ParticleSystem hitFX;
 	[SerializeField] ParticleSystem deathFX;
+	[SerializeField] AudioClip hitSFX;
+	[SerializeField] AudioClip deathSFX;
 
 	bool isAlive = true;
 	GameObject fxParent;
+	AudioSource audiosource;
 
 	private void Start()
 	{
 		fxParent = GameObject.Find("Spawned At Runtime");
+		audiosource = GetComponent<AudioSource>(); 
 	}
 
 	private void Update()
@@ -30,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
 	{
 		healthPoints--;
 		TriggerHitFX();
+		audiosource.PlayOneShot(hitSFX);
 	}
 
 	private void CheckForDestruction()
@@ -38,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
 		{
 			ProcessDestruction();
 			isAlive = false;
+			AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, 1);
 			ScoreHandler sh = FindObjectOfType<ScoreHandler>();
 			sh.addToScore(pointsWorth);
 		}

@@ -7,8 +7,8 @@ public class EnemySpawner : MonoBehaviour
 	//Parameters
 	[SerializeField] float spawnInterval;
 	[SerializeField] EnemyHealth enemyToSpawn;
-	
-	bool isRunning = true;
+	[SerializeField] AudioClip spawnSFX;
+
 	void Start()
 	{
 		StartCoroutine(SpawnEnemies());
@@ -21,6 +21,8 @@ public class EnemySpawner : MonoBehaviour
 			yield return new WaitForSeconds(spawnInterval);
 			EnemyHealth enemySpawned = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
 			enemySpawned.transform.parent = transform;
+			GetComponent<AudioSource>().PlayOneShot(spawnSFX);
+
 		}
 	}
 }
